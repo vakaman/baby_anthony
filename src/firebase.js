@@ -1,8 +1,8 @@
-// src/firebase.js
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
-// Configuração do Firebase com variáveis de ambiente
+// Configurações do Firebase
 const firebaseConfig = {
   apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
   authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
@@ -12,14 +12,18 @@ const firebaseConfig = {
   appId: process.env.VUE_APP_FIREBASE_APP_ID,
 };
 
-// Inicialize o Firebase
-const app = initializeApp(firebaseConfig);
+// Inicializa o Firebase
+const firebaseApp = initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
+// Configura autenticação
+const auth = getAuth(firebaseApp);
 const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
-
 const signInWithGoogle = () => signInWithPopup(auth, googleProvider);
 const signInWithFacebook = () => signInWithPopup(auth, facebookProvider);
 
-export { auth, signInWithGoogle, signInWithFacebook };
+// Configura Firestore
+const db = getFirestore(firebaseApp);
+
+// Exporta os recursos necessários
+export { auth, signInWithGoogle, signInWithFacebook, db };

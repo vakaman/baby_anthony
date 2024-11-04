@@ -11,5 +11,7 @@ services:
       - .:/app  # Monta o diretório do projeto local no container
       - /app/node_modules  # Garante que node_modules seja gerenciado internamente no container
     user: "1000:1000"  # Define o UID e GID para garantir acesso
+    env_file:
+      - .env
     stdin_open: true
     tty: true
