@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 // Configurações do Firebase
@@ -19,11 +19,27 @@ const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
-const signInWithGoogle = () => signInWithPopup(auth, googleProvider);
-const signInWithFacebook = () => signInWithPopup(auth, facebookProvider);
+
+// Detecta o ambiente e seleciona o método de autenticação apropriado
+const isLocalhost = window.location.hostname === 'localhost';
+const signInWithGoogle = () => isLocalhost ? signInWithPopup(auth, googleProvider) : signInWithRedirect(auth, googleProvider);
+const signInWithFacebook = () => isLocalhost ? signInWithPopup(auth, facebookProvider) : signInWithRedirect(auth, facebookProvider);
+
+// Verifica o resultado do redirecionamento (apenas em produção)
+if (!isLocalhost) {
+  getRedirectResult(auth)
+    .then((result) => {
+      if (result) {
+        console.log("Usuário autenticado com sucesso via redirecionamento:", result.user);
+      }
+    })
+    .catch((error) => {
+      console.error("Erro ao autenticar com redirecionamento:", error);
+    });
+}
 
 // Configura Firestore
 const db = getFirestore(firebaseApp);
 
 // Exporta os recursos necessários
-export { auth, signInWithGoogle, signInWithFacebook, db };
+export { firebaseApp, auth, signInWithGoogle, signInWithFacebook, db };

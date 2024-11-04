@@ -1,20 +1,20 @@
-import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
-import { firebaseApp } from "@/firebase";  // Certifique-se de que firebaseApp foi exportado do firebase.js
+import { signOut, onAuthStateChanged } from "firebase/auth";
+import { auth, signInWithGoogle as googleSignIn, signInWithFacebook as facebookSignIn } from "@/firebase";
 
-const auth = getAuth(firebaseApp);
-
+// Função de login com Google
 export const signInWithGoogle = () => {
-  const provider = new GoogleAuthProvider();
-  return signInWithPopup(auth, provider);
+  return googleSignIn();
 };
 
+// Função de login com Facebook
 export const signInWithFacebook = () => {
-  const provider = new FacebookAuthProvider();
-  return signInWithPopup(auth, provider);
+  return facebookSignIn();
 };
 
+// Função para logout
 export const logout = () => signOut(auth);
 
+// Listener para monitorar o estado de autenticação
 export const subscribeToAuthChanges = (callback) => {
   onAuthStateChanged(auth, callback);
 };

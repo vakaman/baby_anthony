@@ -1,13 +1,12 @@
 <template>
   <div class="home-page" v-if="itemsLoaded && userChecked">
-    <!-- Banner -->
+
     <div class="banner">
       <img src="@/assets/cut-banner-image.png" alt="Banner do Chá de Bebê" class="banner-image" />
     </div>
 
     <h2>Escolha um presentinho pro Anthony! 🥰</h2>
 
-    <!-- Verifica se há itens na lista -->
     <div class="wishlist" v-if="items && items.length">
       <WishlistItem 
         v-for="item in items" 
@@ -20,7 +19,6 @@
       />
     </div>
 
-    <!-- Mensagem padrão quando não há itens cadastrados -->
     <div v-else>
       <p>Nenhum item foi cadastrado na lista de presentes.</p>
     </div>
@@ -159,6 +157,10 @@ export default {
   text-align: center;
 }
 
+.home-page h2 {
+  margin: 20px;
+}
+
 /* Estilos para o banner */
 .banner {
   margin-bottom: 20px;
@@ -167,12 +169,12 @@ export default {
 .banner-image {
   max-width: 100%;
   max-height: 500px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .wishlist {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   padding: 20px;
 }

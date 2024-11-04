@@ -111,6 +111,7 @@ export default {
 .user-name {
   font-weight: bold;
   color: white;
+  font-size: 0.85em;
 }
 
 .login-message {
@@ -138,5 +139,8 @@ export default {
   width: 100%;
   cursor: pointer;
   border-radius: 5px;
+}
+.NavBar-brand {
+  font-size: 0.9em;
 }
 </style>
