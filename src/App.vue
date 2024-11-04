@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <WishList />
+    <HomePage />
   </div>
 </template>
 
 <script>
-import WishList from "./components/WishList.vue";
+import HomePage from "./components/HomePage.vue";
 
 export default {
   name: "App",
   components: {
-    WishList,
+    HomePage,
   },
 };
 </script>
