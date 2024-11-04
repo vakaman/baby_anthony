@@ -1,9 +1,8 @@
-name: baby_anthony
+name: Deploy Baby Anthony
 
 on:
   push:
-    branches:
-      - main 
+    branches: [ "main" ]
 
 jobs:
   build-and-deploy:
@@ -11,18 +10,19 @@ jobs:
 
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: yarn install
+        run: npm install
 
       - name: Build the Vue.js app
-        run: yarn build
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
