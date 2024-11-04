@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup,  getRedirectResult } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -18,8 +18,8 @@ const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 
 const isLocalhost = window.location.hostname === 'localhost';
-const signInWithGoogle = () => isLocalhost ? signInWithPopup(auth, googleProvider) : signInWithRedirect(auth, googleProvider);
-const signInWithFacebook = () => isLocalhost ? signInWithPopup(auth, facebookProvider) : signInWithRedirect(auth, facebookProvider);
+const signInWithGoogle = () => isLocalhost ? signInWithPopup(auth, googleProvider) : signInWithPopup(auth, googleProvider);
+const signInWithFacebook = () => isLocalhost ? signInWithPopup(auth, facebookProvider) : signInWithPopup(auth, facebookProvider);
 
 if (!isLocalhost) {
   getRedirectResult(auth)
