@@ -1,34 +1,36 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="pt-BR">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-  <title>
-    <%= htmlWebpackPlugin.options.title %>
-  </title>
+  <title><%= htmlWebpackPlugin.options.title %></title>
+
+  <!-- Meta Tags Padrão -->
+  <meta name="title" content="Chá de Bebê do Anthony 🎉">
+  <meta name="description" content="O Chá de Bebê do Anthony está chegando! Escolha um presente especial e faça parte deste momento único, compartilhando a alegria da chegada do nosso pequeno. Contamos com você para tornar essa celebração ainda mais especial! 🥰">
+
   <!-- Open Graph Meta Tags para compartilhamento -->
   <meta property="og:title" content="Chá de Bebê do Anthony 🎉" />
-  <meta property="og:description"
-    content="Escolha um presente especial para o Anthony e faça parte desse momento único! 🥰" />
-  <meta property="og:image" content="/assets/invite.jpeg" />
+  <meta property="og:description" content="O Chá de Bebê do Anthony está chegando! Escolha um presente especial e faça parte deste momento único, compartilhando a alegria da chegada do nosso pequeno. Contamos com você para tornar essa celebração ainda mais especial! 🥰" />
+  <meta property="og:image" content="https://vakaman.github.io/baby_anthony/assets/invite.jpeg" />
   <meta property="og:url" content="https://vakaman.github.io/baby_anthony/" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
 
   <!-- Twitter Card Meta Tags para compartilhamento no Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Chá de Bebê do Anthony 🎉" />
-  <meta name="twitter:description"
-    content="Escolha um presente especial para o Anthony e faça parte desse momento único! 🥰" />
-  <meta name="twitter:image" content="/assets/invite.jpeg" />
+  <meta name="twitter:description" content="O Chá de Bebê do Anthony está chegando! Escolha um presente especial e faça parte deste momento único, compartilhando a alegria da chegada do nosso pequeno. Contamos com você para tornar essa celebração ainda mais especial! 🥰" />
+  <meta name="twitter:image" content="https://vakaman.github.io/baby_anthony/assets/invite.jpeg" />
 </head>
 
 <body>
   <noscript>
     <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
-        Please enable it to continue.</strong>
+      Please enable it to continue.</strong>
   </noscript>
   <div id="app"></div>
 </body>
