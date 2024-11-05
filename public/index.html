@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+  <!-- Open Graph Meta Tags para compartilhamento -->
+  <meta property="og:title" content="Chá de Bebê do Anthony 🎉" />
+  <meta property="og:description"
+    content="Escolha um presente especial para o Anthony e faça parte desse momento único! 🥰" />
+  <meta property="og:image" content="/assets/invite.jpeg" />
+  <meta property="og:url" content="https://vakaman.github.io/baby_anthony/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card Meta Tags para compartilhamento no Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Chá de Bebê do Anthony 🎉" />
+  <meta name="twitter:description"
+    content="Escolha um presente especial para o Anthony e faça parte desse momento único! 🥰" />
+  <meta name="twitter:image" content="/assets/invite.jpeg" />
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+</body>
+
 </html>

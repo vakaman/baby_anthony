@@ -3,8 +3,8 @@
       <div class="login-modal" @click.stop>
         <h3>Escolha o método de login</h3>
         <button @click="handleGoogleLogin" class="auth-button google">Login com Google</button>
-        <button @click="handleFacebookLogin" class="auth-button facebook">Login com Facebook</button>
-        <button @click="closeModal" class="close-button">Cancelar</button>
+        <!-- <button @click="handleFacebookLogin" class="auth-button facebook">Login com Facebook</button>
+        <button @click="closeModal" class="close-button">Cancelar</button> -->
       </div>
     </div>
   </template>
