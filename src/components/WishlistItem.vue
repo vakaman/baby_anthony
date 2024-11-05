@@ -94,6 +94,9 @@
   
   <style scoped>
   .wishlist-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo, incluindo os botões */
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 12px;
@@ -139,7 +142,8 @@
     font-weight: bold;
     transition: all 0.3s;
     margin-top: 6px;
-    width: 90%;
+    width: 100%; /* Preenche toda a largura do container */
+    max-width: 180px; /* Limite de largura */
   }
   
   .reference-button {
@@ -201,6 +205,14 @@
   
   .references-list a:hover {
     text-decoration: underline;
+  }
+  
+  /* Responsividade para exibir um item por linha no celular */
+  @media (max-width: 600px) {
+    .wishlist-item {
+      width: 100%;
+      margin-bottom: 15px; /* Espaçamento entre os itens */
+    }
   }
   </style>
   
